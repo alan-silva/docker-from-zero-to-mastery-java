@@ -1,0 +1,13 @@
+language: java
+jdk:
+  - oraclejdk11
+beforeinstall:
+  - sudo apt-get update 
+  - cd app/
+    echo "Let's start Maven Package !!!"
+  - mvn clean package 
+  - cd ..
+  - echo "We are in root dir"
+script:
+  - docker-compose build 
+before_deploy
